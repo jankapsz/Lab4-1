@@ -21,7 +21,7 @@ namespace Szeminarium1_24_03_05_2
 
         private static GlObject glCube;
 
-        private static GlObject glTeapot;
+        private static GlObject glMiniCooper;
 
         private static float Shininess = 40;
 
@@ -135,7 +135,7 @@ namespace Szeminarium1_24_03_05_2
 
             glCube = GlObject.CreateCube(Gl);
 
-            glTeapot = ObjectResourceReader.CreateObjectFromResource(Gl, "teapot.obj");
+            glMiniCooper = ObjectResourceReader.CreateObjectFromResource(Gl, "minicooper.obj");
 
             LinkProgram();
         }
@@ -300,10 +300,10 @@ namespace Szeminarium1_24_03_05_2
 
         private static unsafe void DrawCenteredPulsingTeapot()
         {
-            Gl.BindVertexArray(glTeapot.Vao);
+            Gl.BindVertexArray(glMiniCooper.Vao);
             Matrix4X4<float> modelMatrixForCenterCube = Matrix4X4.CreateScale((float)cubeArrangementModel.CenterCubeScale);
             SetModelMatrix(modelMatrixForCenterCube);
-            Gl.DrawElements(PrimitiveType.Triangles, glTeapot.IndexArrayLength, DrawElementsType.UnsignedInt, null);
+            Gl.DrawElements(PrimitiveType.Triangles, glMiniCooper.IndexArrayLength, DrawElementsType.UnsignedInt, null);
             Gl.BindVertexArray(0);
         }
 
